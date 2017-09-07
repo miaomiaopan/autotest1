@@ -11,28 +11,40 @@ import springbootlearn.service.PeopleService;
 @Service
 public class PeopleServiceImpl implements PeopleService {
 
-	@Autowired
-	PeopleRepository personRepositoy;
-
-	@Transactional(rollbackFor = (IllegalArgumentException.class))
-	public People savePersonWithRollBack(People entity) {
-		People people = personRepositoy.save(entity);
-		 if(people.getName().equals("pmm")){
-		 throw new IllegalArgumentException("pmm已经存在，数据将回滚");
-		 }
-
-		return people;
-
+	@Override
+	public People savePersonWithRollBack(People people) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	@Transactional(noRollbackFor = (IllegalArgumentException.class))
-	public People savePersonWithoutRollBack(People entity) {
-		People people = personRepositoy.save(entity);
-		 if(people.getName().equals("pmm")){
-		 throw new IllegalArgumentException("pmm已经存在，数据不会回滚");
-		 }
-
-		return people;
+	@Override
+	public People savePersonWithoutRollBack(People people) {
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+//	@Autowired
+//	PeopleRepository personRepositoy;
+//
+//	@Transactional(rollbackFor = (IllegalArgumentException.class))
+//	public People savePersonWithRollBack(People entity) {
+//		People people = personRepositoy.save(entity);
+//		 if(people.getName().equals("pmm")){
+//		 throw new IllegalArgumentException("pmm已经存在，数据将回滚");
+//		 }
+//
+//		return people;
+//
+//	}
+//
+//	@Transactional(noRollbackFor = (IllegalArgumentException.class))
+//	public People savePersonWithoutRollBack(People entity) {
+//		People people = personRepositoy.save(entity);
+//		 if(people.getName().equals("pmm")){
+//		 throw new IllegalArgumentException("pmm已经存在，数据不会回滚");
+//		 }
+//
+//		return people;
+//	}
 
 }
